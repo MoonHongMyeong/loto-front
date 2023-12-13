@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Main = () => {
+const Section = () => {
     return (
         <Container>
             
@@ -15,4 +15,4 @@ const Container = styled.main`
     background-color : #F9F7F3;
 `;
 
-export default Main;
+export default Section;

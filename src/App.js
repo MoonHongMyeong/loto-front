@@ -1,14 +1,10 @@
 import React from 'react';
-import Header from './components/layout/Header';
-import Main from './components/layout/Main';
-import Footer from './components/layout/Footer';
+import Main from './components/pages/Main';
 
 function App() {
   return (
     <React.Fragment>
-      <Header/>
-      <Main/>
-      <Footer/>
+      <Main></Main>
     </React.Fragment>
   );
 }
