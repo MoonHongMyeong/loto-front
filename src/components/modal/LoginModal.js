@@ -1,18 +1,37 @@
-import React from "react";
+import React,{ useState } from "react";
 import styled from "styled-components";
 import { DiscordLoginButton, LoginButton } from "../button/Buttons";
 import { ReactComponent as DiscordIcon } from "../../assets/DiscordIcon.svg";
 import { LoginInput } from "../input/Inputs"
 
 const LoginModal = () => {
+    
+    const [login, setLogin] = useState({
+        email : "",
+        apiToken : ""
+    });
+
+    const handleInput = (e) => {
+        setLogin({
+            ...login,
+            [e.target.name]: e.target.value
+        });
+    }
+
     return (
         <Container>
             <ModalContainer>
-                <LoginInput name={"email"} placeholder="E-mail"/>
-                <LoginInput name={"apiToken"} placeholder="Api Token"/>
+                <LoginInput name={"email"} 
+                            placeholder="E-mail" 
+                            onChange={handleInput}/>
+                <LoginInput name={"apiToken"} 
+                            placeholder="Api Token" 
+                            onChange={handleInput}/>
                 <LoginButton color="#F9F7F6">Login</LoginButton>
                 <DiscordLoginButton color={"#F9F7F6"}> 
-                    <DiscordIcon width={"1.5em"} height={"1.5em"} fill={"#F9F7F6"}/>
+                    <DiscordIcon width={"1.5em"} 
+                                 height={"1.5em"} 
+                                 fill={"#F9F7F6"}/>
                     &nbsp;Continue with Discord
                 </DiscordLoginButton>
             </ModalContainer>
