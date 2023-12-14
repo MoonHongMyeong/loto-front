@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const LoginButton = styled.button`
+export const LongButton = styled.button`
     width: 20vw;
     height: 5vh;
-    background-color: #3f3f3f;
-    color: ${props => props.color};
+    background-color: ${props => props.backgroundcolor === undefined ? "#3F3F3F" : props.backgroundcolor};
+    color: ${props => props.color === undefined ? "#F9F7F6" : props.color};
     border-radius: 0.3vw;
     display: flex;
     flex-direction: row;

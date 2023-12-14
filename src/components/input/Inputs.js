@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LoginInput = styled.input`
+export const UserInput = styled.input`
     width: 20vw;
     height: 5vh;
     border: none;
