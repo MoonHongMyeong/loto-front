@@ -1,33 +1,38 @@
-import React,{ useState } from "react";
+import React,{ useContext, useState } from "react";
 import styled from "styled-components";
-import { DiscordLoginButton, LoginButton } from "../button/Buttons";
+import { DiscordLoginButton, LongButton } from "../button/Buttons";
 import { ReactComponent as DiscordIcon } from "../../assets/DiscordIcon.svg";
-import { LoginInput } from "../input/Inputs"
+import { UserInput } from "../input/Inputs"
+import { UserContext } from "../../contexts/UserContext";
 
 const LoginModal = () => {
-    
-    const [login, setLogin] = useState({
+    const userInfo = useContext(UserContext);
+    const [loginInfo, setLoginInfo] = useState({
         email : "",
         apiToken : ""
     });
 
     const handleInput = (e) => {
-        setLogin({
-            ...login,
+        setLoginInfo({
+            ...loginInfo,
             [e.target.name]: e.target.value
         });
+    }
+
+    const clickLoginBtn = (e) => {
+        console.log(userInfo?.user);
     }
 
     return (
         <Container>
             <ModalContainer>
-                <LoginInput name={"email"} 
+                <UserInput name={"email"} 
                             placeholder="E-mail" 
                             onChange={handleInput}/>
-                <LoginInput name={"apiToken"} 
+                <UserInput name={"apiToken"} 
                             placeholder="Api Token" 
                             onChange={handleInput}/>
-                <LoginButton color="#F9F7F6">Login</LoginButton>
+                <LongButton className="loginBtn" onClick={clickLoginBtn}>Login</LongButton>
                 <DiscordLoginButton color={"#F9F7F6"}> 
                     <DiscordIcon width={"1.5em"} 
                                  height={"1.5em"} 
