@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-const Section = () => {
+const Section = ({ children }) => {
     return (
         <Container>
-            
+            { children }
         </Container>
     )
 }
 
 const Container = styled.main`
     width : 100%;
-    height : calc(100vh - 160px);
     background-color : #F9F7F3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 export default Section;
