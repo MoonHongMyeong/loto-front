@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import Main from './components/pages/Main';
 import SignUp from './components/pages/SignUp';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';

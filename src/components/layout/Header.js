@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { UserContext } from "../../contexts/UserContext";
+import LoginModal from "../modal/LoginModal";
 
 const Header = () => {
+
+    const loginUser = useContext(UserContext);
+
     return (
-        <Container>
-            
-        </Container>
+        <>
+            <Container>
+                
+            </Container>
+            { loginUser.user.nickname === '' && <LoginModal/>}
+        </>
     )
 }
 
