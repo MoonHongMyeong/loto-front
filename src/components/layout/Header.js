@@ -12,7 +12,7 @@ const Header = () => {
             <Container>
                 
             </Container>
-            { loginUser.user.nickname === '' && <LoginModal/>}
+            { loginUser.user.nickname === "" && window.location.pathname !== "/signUp" && <LoginModal/>}
         </>
     )
 }
