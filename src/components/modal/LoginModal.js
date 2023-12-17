@@ -57,8 +57,8 @@ const Container = styled.div`
 `;
 
 const ModalContainer = styled.div`
-    width: 30vw;
-    height: 40vh;
+    width: 20rem;
+    height: 25rem;
     background-color: #E1E1E1;
     border-radius: 1.5vw;
     display: flex;

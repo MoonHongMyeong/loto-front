@@ -49,7 +49,7 @@ const SignUp = () => {
 
 const SignUpContainer = styled.div`
     width: 50%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 10rem);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -19,7 +19,7 @@ const Header = () => {
 
 const Container = styled.header`
     width: 100%;
-    height: 100px;
+    height: 6.25rem;
     background-color : #F9F7F3;
 `;
 

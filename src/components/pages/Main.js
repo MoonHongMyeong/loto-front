@@ -21,7 +21,7 @@ const Main = () => {
 
 const Container = styled.div`
     width: 100%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 10rem);
 `;
 
 export default Main;
