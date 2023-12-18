@@ -1,16 +1,15 @@
 import React, { useEffect } from 'react';
 import CharacterItem from './CharacterItem';
 
-const CharacterList = ({...characters}) => {
-    useEffect(() => {
-        console.log(characters)
-    }, [characters]);
+const CharacterList = ({characters}) => {
     return (
         <>
-        {
-            Array.from(characters).map((character,idx) => {                
+        {   
+            Array.from(characters).map((character,index) => {                
                 return (
-                    <CharacterItem key={idx} character={character}/>
+                    <>
+                        <CharacterItem key={character.CharacterName} character={character}/>
+                    </>
                 )
             })
         }

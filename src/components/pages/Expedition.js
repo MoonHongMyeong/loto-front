@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "../layout/Header";
 import Section from "../layout/Section";
 import Footer from "../layout/Footer";
@@ -7,13 +7,20 @@ import { ExpeditionInput } from "../input/Inputs";
 import { ShortButton } from "../button/Buttons";
 import axios from "axios";
 import { UserContext } from "../../contexts/UserContext";
-import CharacterList from "../list/CharacterList";
-import CharacterItem from "../list/CharacterItem";
+import CharacterList from "../list/CharacterList"
 
 const Expedition = () => {  
     const userInfo = useContext(UserContext);
     const [characterName, setCharacterName] = useState('');
     const [characters, setCharacters] = useState([]);
+
+    const resizeCharacterList = () => {
+        console.log(characters);
+    }
+
+    useEffect(() => {
+        resizeCharacterList();   
+    }, [characters]);
 
     const clickSearchBtn = (e) => {
         axios.get( 'https://developer-lostark.game.onstove.com/characters/'+characterName+'/siblings', {
@@ -29,7 +36,7 @@ const Expedition = () => {
                 res.data.sort((a,b) => {
                     return b.ItemMaxLevel - a.ItemMaxLevel;
                 })
-                setCharacters(res.data);
+                setCharacters(Array.from(res.data));
             })
             .catch(e => console.log(e))
     }
@@ -44,14 +51,14 @@ const Expedition = () => {
             <Section>
                 <Container>
                     <InputContainer>
-                        <ExpeditionInput onChange={handleInput}/>
+                        <ExpeditionInput className="searchInput" onChange={handleInput}/>
                         <ShortButton className="searchBtn" onClick={clickSearchBtn}>
                             검색
                         </ShortButton>
                     </InputContainer>
                     <CharacterListContainer>
                         {
-                            characters && <CharacterList characters={characters}/>
+                            characters && <CharacterList characters= {characters}/>
                         }
                     </CharacterListContainer>
                 </Container>
@@ -63,7 +70,7 @@ const Expedition = () => {
 
 const Container = styled.div`
     width: 60rem;
-    height: calc(100vh - 10rem);
+    height: ${props => props.height === undefined ? 'calc(100vh - 10rem)' : '100%'};
     background-color: #e1e1e1;
     display: flex;
     flex-direction: column;
@@ -79,7 +86,6 @@ const InputContainer = styled.div`
 
 const CharacterListContainer = styled.div`
     width: 100%;
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
