@@ -17,7 +17,7 @@ const Expedition = () => {
     const characterListRef = useRef();
 
     const resizeCharacterList = () => {
-        if(characterListRef.current.children.length !== 0){
+        if(characterListRef.current.offsetHeight > containerRef.current.offsetHeight){
             containerRef.current.style.height = '100%'
         }
     }
