@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Checkbox } from '../input/Inputs';
 
 const CharacterItem = ({character}) => {
     return (
@@ -9,6 +10,7 @@ const CharacterItem = ({character}) => {
             <CharacterClassNameContainer>{character.CharacterClassName}</CharacterClassNameContainer>
             <CharacterLevelContainer>{character.CharacterLevel}</CharacterLevelContainer>
             <CharacterServerNameContainer>{character.ServerName}</CharacterServerNameContainer>
+            <Checkbox type='checkbox' name={character.CharacterName}/>
         </Container>
     )
 }

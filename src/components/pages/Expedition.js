@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Header from "../layout/Header";
 import Section from "../layout/Section";
 import Footer from "../layout/Footer";
@@ -13,9 +13,13 @@ const Expedition = () => {
     const userInfo = useContext(UserContext);
     const [characterName, setCharacterName] = useState('');
     const [characters, setCharacters] = useState([]);
+    const containerRef = useRef();
+    const characterListRef = useRef();
 
     const resizeCharacterList = () => {
-        console.log(characters);
+        if(characterListRef.current.children.length !== 0){
+            containerRef.current.style.height = '100%'
+        }
     }
 
     useEffect(() => {
@@ -49,16 +53,16 @@ const Expedition = () => {
         <>
             <Header/>
             <Section>
-                <Container>
+                <Container ref={containerRef}>
                     <InputContainer>
                         <ExpeditionInput className="searchInput" onChange={handleInput}/>
                         <ShortButton className="searchBtn" onClick={clickSearchBtn}>
                             검색
                         </ShortButton>
                     </InputContainer>
-                    <CharacterListContainer>
+                    <CharacterListContainer ref={characterListRef}>
                         {
-                            characters && <CharacterList characters= {characters}/>
+                            characters.length !== 0 && <CharacterList characters= {characters}/>
                         }
                     </CharacterListContainer>
                 </Container>

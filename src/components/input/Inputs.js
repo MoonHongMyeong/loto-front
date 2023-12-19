@@ -15,3 +15,6 @@ export const UserInput = styled.input`
     margin-bottom: 1.5em;
     border-radius: 0.3vw;
 `;
+
+export const Checkbox = styled.input`
+`;
