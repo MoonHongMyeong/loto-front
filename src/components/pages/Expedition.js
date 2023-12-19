@@ -78,6 +78,8 @@ const Container = styled.div`
     background-color: #e1e1e1;
     display: flex;
     flex-direction: column;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
 `;
 
 const InputContainer = styled.div`
