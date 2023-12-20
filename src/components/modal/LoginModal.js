@@ -25,7 +25,7 @@ const LoginModal = () => {
         axios.post(SERVER.LOGIN_REQUEST, loginInfo)
             .then(res => {
                 userInfo.setUser(res.data);
-                sessionStorage.setItem('user', res.data);
+                sessionStorage.setItem('user', JSON.stringify(res.data));
             })
             .catch(e => console.log(e));
     }

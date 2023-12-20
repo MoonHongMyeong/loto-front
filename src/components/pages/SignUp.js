@@ -39,7 +39,7 @@ const SignUp = () => {
         })
         .catch(e => console.log(e));
 
-        sessionStorage.setItem('user', userInfo.user);
+        sessionStorage.setItem('user', JSON.stringify(userInfo.user));
 
         return navigate("/");
     }
