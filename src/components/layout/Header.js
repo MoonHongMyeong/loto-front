@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { UserContext } from "../../contexts/UserContext";
 import LoginModal from "../modal/LoginModal";
@@ -6,6 +6,14 @@ import LoginModal from "../modal/LoginModal";
 const Header = () => {
 
     const loginUser = useContext(UserContext);
+
+    useEffect(() => {
+        if(loginUser.user.nickname === "") {
+            let sessionUser = sessionStorage.getItem('user');
+
+            loginUser.setUser(sessionUser);
+        }
+    }, []);
 
     return (
         <>
