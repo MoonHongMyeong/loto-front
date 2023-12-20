@@ -30,7 +30,7 @@ const Expedition = () => {
         axios.get( 'https://developer-lostark.game.onstove.com/characters/'+characterName+'/siblings', {
             headers: {
                 accept: 'application/json',
-                authorization: 'bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IktYMk40TkRDSTJ5NTA5NWpjTWk5TllqY2lyZyIsImtpZCI6IktYMk40TkRDSTJ5NTA5NWpjTWk5TllqY2lyZyJ9.eyJpc3MiOiJodHRwczovL2x1ZHkuZ2FtZS5vbnN0b3ZlLmNvbSIsImF1ZCI6Imh0dHBzOi8vbHVkeS5nYW1lLm9uc3RvdmUuY29tL3Jlc291cmNlcyIsImNsaWVudF9pZCI6IjEwMDAwMDAwMDAwODQ0NjAifQ.NUkGbsZAA34d8GHRgRwoiUU0s3vUvCVwBym1vnQ0Js6TJ_exKFzm7psKiBSLx-0lapaQXVD5hRMn4BW1gq5pemtbddKU6KLlqioxFDsgVt5Wd91e7YZM2e5-tTDzGk_yymaKRhjn0GWT2SiNnxG8hLu8MMdFT8UUv2byUb8Fxe5kTmprL_u5z8ROKn96xrGZgZS7hRjNW8QKhZm-Rx4a9EtZlaTfPDvtSCdvERps_Xk6DaOghId3A9KWdG79dwKrOXHtCYjGMZyaWuqtiHz0lfw51iolwk8VaY4jqpqRXEPUrcOf7X6o5w0XmrdKKD1AyW1f3C5F-eueed3c1zOxig'
+                authorization: 'bearer ' + userInfo.user.apiToken
             }
         })
             .then(res => {
