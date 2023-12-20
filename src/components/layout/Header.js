@@ -8,19 +8,21 @@ const Header = () => {
     const loginUser = useContext(UserContext);
 
     useEffect(() => {
-        if(loginUser.user.nickname === "") {
+        if(!loginUser.user) {
+            console.log('useEffect')
             let sessionUser = sessionStorage.getItem('user');
 
             loginUser.setUser(sessionUser);
         }
-    }, []);
+        console.log(loginUser)
+    }, [loginUser]);
 
     return (
         <>
             <Container>
                 
             </Container>
-            { loginUser.user.nickname === "" && window.location.pathname !== "/signUp" && <LoginModal/>}
+            { loginUser.user?.nickname === "" && window.location.pathname !== "/signUp" && <LoginModal/>}
         </>
     )
 }

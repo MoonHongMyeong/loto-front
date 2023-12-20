@@ -4,6 +4,8 @@ import { DiscordLoginButton, LongButton } from "../button/Buttons";
 import { ReactComponent as DiscordIcon } from "../../assets/DiscordIcon.svg";
 import { UserInput } from "../input/Inputs"
 import { UserContext } from "../../contexts/UserContext";
+import axios from "axios";
+import { SERVER } from "../../assets/server";
 
 const LoginModal = () => {
     const userInfo = useContext(UserContext);
@@ -20,7 +22,12 @@ const LoginModal = () => {
     }
 
     const clickLoginBtn = (e) => {
-        console.log(userInfo?.user);
+        axios.post(SERVER.LOGIN_REQUEST, loginInfo)
+            .then(res => {
+                userInfo.setUser(res.data);
+                sessionStorage.setItem('user', res.data);
+            })
+            .catch(e => console.log(e));
     }
 
     return (
